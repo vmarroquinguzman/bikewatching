@@ -15,3 +15,24 @@ const map = new mapboxgl.Map({
   minZoom: 5, // Minimum allowed zoom
   maxZoom: 18, // Maximum allowed zoom
 });
+
+map.on('load', async () => {
+    map.addSource('boston_route', {
+    type: 'geojson',
+    data: './Existing_Bike_Network_2022.geojson',
+    });
+
+    map.addLayer({
+    id: 'bike-lanes',
+    type: 'line',
+    source: 'boston_route',
+    paint: {
+        'line-color': 'green',
+        'line-width': 3,
+        'line-opacity': 0.4,
+    },
+    });
+});
+
+
+
