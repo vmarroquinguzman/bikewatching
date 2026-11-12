@@ -15,15 +15,3 @@ const map = new mapboxgl.Map({
   minZoom: 5, // Minimum allowed zoom
   maxZoom: 18, // Maximum allowed zoom
 });
-
- // Add navigation controls to the map
-map.addControl(new mapboxgl.NavigationControl());
-
-// Add a scale control to the map
-map.addControl(new mapboxgl.ScaleControl());
-
-// Add a fullscreen control to the map
-map.addControl(new mapboxgl.FullscreenControl());
-
-// Add a geolocate control to the map
-map.addControl(new mapboxgl.GeolocateControl());
