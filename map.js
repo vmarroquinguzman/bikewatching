@@ -2,3 +2,34 @@
 import mapboxgl from 'https://cdn.jsdelivr.net/npm/mapbox-gl@2.15.0/+esm';
 // Check that Mapbox GL JS is loaded
 console.log('Mapbox GL JS Loaded:', mapboxgl);
+
+// Set your Mapbox access token here
+mapboxgl.accessToken = 'pk.eyJ1Ijoidm1hcnJvcXVpbmd1em1hbiIsImEiOiJjbXdkeWljcjQwMHh1MnpvZWI5dTdrOGl3In0.xo5Vd3LYeQQlubikstOSUw';
+
+// Initialize the map
+const map = new mapboxgl.Map({
+  container: 'map', // ID of the div where the map will render
+  style: 'mapbox://styles/mapbox/streets-v12', // Map style
+  center: [-71.09415, 42.36027], // [longitude, latitude]
+  zoom: 12, // Initial zoom level
+  minZoom: 5, // Minimum allowed zoom
+  maxZoom: 18, // Maximum allowed zoom
+});
+
+// Add navigation controls to the map
+map.addControl(new mapboxgl.NavigationControl());
+
+// Add a scale control to the map
+map.addControl(new mapboxgl.ScaleControl());
+
+// Add a fullscreen control to the map
+map.addControl(new mapboxgl.FullscreenControl());
+
+// Add a geolocator control to the map
+map.addControl(new mapboxgl.GeolocatorControl());
+
+// Add a layers control to the map
+map.addControl(new mapboxgl.LayersControl());
+
+// Add a attribution control to the map
+map.addControl(new mapboxgl.AttributionControl());
