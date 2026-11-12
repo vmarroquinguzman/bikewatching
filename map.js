@@ -16,7 +16,7 @@ const map = new mapboxgl.Map({
   maxZoom: 18, // Maximum allowed zoom
 });
 
-// Add navigation controls to the map
+ // Add navigation controls to the map
 map.addControl(new mapboxgl.NavigationControl());
 
 // Add a scale control to the map
@@ -25,11 +25,5 @@ map.addControl(new mapboxgl.ScaleControl());
 // Add a fullscreen control to the map
 map.addControl(new mapboxgl.FullscreenControl());
 
-// Add a geolocator control to the map
-map.addControl(new mapboxgl.GeolocatorControl());
-
-// Add a layers control to the map
-map.addControl(new mapboxgl.LayersControl());
-
-// Add a attribution control to the map
-map.addControl(new mapboxgl.AttributionControl());
+// Add a geolocate control to the map
+map.addControl(new mapboxgl.GeolocateControl());
