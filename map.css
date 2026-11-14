@@ -23,6 +23,9 @@ body {
   height: 100%;
   pointer-events: none;
 }
+#map svg circle {
+    pointer-events: auto;
+}
 
 circle{
     fill: rgb(221, 96, 39);
