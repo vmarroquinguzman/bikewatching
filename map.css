@@ -10,8 +10,9 @@ body {
 }
 
 #map {
-  width: 100%; /* Adjust width to your desired size */
+  width: 90%; /* Adjust width to your desired size */
   height: 100%; /* Adjust height to your desired size */
+  margin: 0 auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for effect */
   border-radius: 8px; /* Optional: rounded corners */
 }
@@ -113,4 +114,35 @@ header label {
 /* More arrivals - orange */
 .legend div:nth-of-type(3)::before {
     background-color: darkorange;
+}
+
+/* Align header with map */
+header {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+}
+
+/* Time filter layout */
+header label {
+    display: grid;
+    grid-template-columns: auto 300px;
+    column-gap: 10px;
+    align-items: center;
+    margin-left: auto;
+}
+
+/* Make the slider longer */
+#time-slider {
+    width: 300px;
+}
+
+/* Position selected time on the right */
+#selected-time,
+#any-time {
+    grid-column: 2;
+    text-align: right;
 }
