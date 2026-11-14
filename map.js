@@ -19,6 +19,7 @@ const map = new mapboxgl.Map({
 
 let departuresByMinute = Array.from({ length: 1440 }, () => []);
 let arrivalsByMinute = Array.from({ length: 1440 }, () => []);
+let stationFlow = d3.scaleQuantize().domain([0, 1]).range([0, 0.5, 1]);
 
 map.on('load', async () => {
 
@@ -77,7 +78,8 @@ map.on('load', async () => {
         .selectAll('circle')
         .data(stations, (d) => d.short_name) // Use station short_name as the key
         .enter()
-        .append('circle');
+        .append('circle')
+        .style('--departure-ratio', (d) => stationFlow(d.departures / d.totalTraffic));
 
     // Function to update circle positions when the map moves/zooms
     function updatePositions() {
@@ -126,7 +128,8 @@ map.on('load', async () => {
         // Update circle sizes
         circles
             .data(filteredStations, (d) => d.short_name)
-            .attr('r', (d) => radiusScale(d.totalTraffic));
+            .attr('r', (d) => radiusScale(d.totalTraffic))
+            .style('--departure-ratio', (d) => stationFlow(d.departures / d.totalTraffic));
 
         // Update tooltip statistics
         circles
